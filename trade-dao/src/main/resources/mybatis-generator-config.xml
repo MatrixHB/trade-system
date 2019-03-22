@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <!--Mysql驱动jar包-->
+    <classPathEntry location="C:\Users\xu_yibin\.m2\repository\mysql\mysql-connector-java\8.0.15\mysql-connector-java-8.0.15.jar" />
+
+    <context id="mybatis-context" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <!--设置生成的代码上面的注释内容，是否取消注释，是否取消注释时间戳-->
+            <property name="supressAllComments" value="false"></property>
+            <property name="supressDate" value="true"></property>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://10.15.194.44:3306"
+                        userId="root"
+                        password="123456">
+        </jdbcConnection>
+
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="zju.xyb.trade.dao.entity" targetProject="./src/main/java">
+            <property name="enableSubPackages" value="false" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!--Mapper配置文件-->
+        <sqlMapGenerator targetPackage="sqlMapper"  targetProject="./src/main/resources">
+            <property name="enableSubPackages" value="false" />
+        </sqlMapGenerator>
+
+        <!--Mapper接口文件-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="zju.xyb.trade.dao.mapper"  targetProject="./src/main/java">
+            <property name="enableSubPackages" value="false" />
+        </javaClientGenerator>
+
+        <table catalog="trade" schema="root" tableName="trade_order" domainObjectName="TradeOrder" >
+        </table>
+        <table catalog="trade" schema="root" tableName="trade_goods" domainObjectName="TradeGoods" >
+        </table>
+        <table catalog="trade" schema="root" tableName="trade_coupon" domainObjectName="TradeCoupon">
+        </table>
+        <table catalog="trade" schema="root" tableName="trade_pay" domainObjectName="TradePay" >
+        </table>
+        <table catalog="trade" schema="root" tableName="trade_user" domainObjectName="TradeUser" >
+        </table>
+
+    </context>
+</generatorConfiguration>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://code.alibabatech.com/schema/dubbo
+       http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <dubbo:application name="dubbo-coupon"></dubbo:application>
+
+    <!--注册中心地址-->
+    <dubbo:registry protocol="zookeeper" address="10.15.194.44:2181"></dubbo:registry>
+
+    <!--服务的协议和端口-->
+    <dubbo:protocol name="dubbo" port="20881"></dubbo:protocol>
+
+    <!--暴露服务-->
+    <dubbo:service interface="zju.xyb.trade.common.service.ICouponService" ref="CouponServiceImpl"></dubbo:service>
+
+    <!--服务的bean注册到容器中-->
+    <bean id="CouponServiceImpl" class="zju.xyb.trade.coupon.service.CouponServiceImpl"></bean>
+
+</beans>
